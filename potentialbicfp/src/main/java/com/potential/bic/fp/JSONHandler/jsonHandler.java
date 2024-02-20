@@ -5,11 +5,10 @@ import com.potential.bic.fp.Models.User;
 import java.io.IOException;
 
 public class jsonHandler {
-    public static void main(String[] args) {
-        ObjectMapper mapper = new ObjectMapper();
+    ObjectMapper mapper = new ObjectMapper();
 
-        // Serialization
-        User user = new User("John Doe", 30);
+    public void Serialize( User user)
+    {
         String jsonString = "";
         try {
             jsonString = mapper.writeValueAsString(user);
@@ -17,8 +16,10 @@ public class jsonHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }   
 
-        // Deserialization
+    public void deSerialize( User user){
+        String jsonString = "";
         try {
             User deserializedUser = mapper.readValue(jsonString, User.class);
             System.out.println("Deserialized user: " + deserializedUser);
@@ -26,4 +27,5 @@ public class jsonHandler {
             e.printStackTrace();
         }
     }
+
 }
