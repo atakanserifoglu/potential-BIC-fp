@@ -3,8 +3,12 @@ package com.potential.bic.fp;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.Transformer;
 
+import com.potential.bic.fp.EnvironmentalAssumption.fileHandler;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.FileHandler;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,5 +30,11 @@ public class Main {
         );
 
         System.out.println("Transformed List: " + transformedList);
+
+        //file manager
+        try {
+            fileHandler.saveFile("Data.txt", "Some content");
+        } catch (IOException e) {
+            e.printStackTrace();
     }
 }
