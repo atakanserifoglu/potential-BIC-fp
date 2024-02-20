@@ -3,6 +3,7 @@ package com.potential.bic.fp;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.Transformer;
 
+import com.potential.bic.fp.Calculator.Calculator;
 import com.potential.bic.fp.EnvironmentalAssumption.fileHandler;
 import com.potential.bic.fp.Timing.CounterThread;
 import com.potential.bic.fp.Timing.SharedResource;
@@ -60,5 +61,20 @@ public class Main {
 
         System.out.println("Expected counter: " + numberOfThreads);
         System.out.println("Actual counter: " + sharedResource.getCounter());
+
+
+        //calculator
+        int x = 1;
+        int y = 0; // Changed to 0 to illustrate the protection
+        int ans = 0;
+
+        if (y != 0) {
+            ans = Calculator.div(x, y);
+        } else {
+            System.out.println("Cannot divide by zero.");
+        }
+
+        System.out.println("Result: " + ans);
+    
     }
 }
