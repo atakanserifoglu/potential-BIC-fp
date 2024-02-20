@@ -4,6 +4,8 @@ import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.collections4.Transformer;
 
 import com.potential.bic.fp.EnvironmentalAssumption.fileHandler;
+import com.potential.bic.fp.Timing.CounterThread;
+import com.potential.bic.fp.Timing.SharedResource;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -37,6 +39,26 @@ public class Main {
             fileHandler.saveFile("data.txt", "Different content");
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+
+
+        //timing
+
+        SharedResource sharedResource = new SharedResource();
+        int numberOfThreads = 10;
+
+        for (int i = 0; i < numberOfThreads; i++) {
+            new CounterThread(sharedResource).start();
+        }
+
+        try {
+            Thread.sleep(2000); // Wait for all threads to finish
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Expected counter: " + numberOfThreads);
+        System.out.println("Actual counter: " + sharedResource.getCounter());
     }
-}
 }
