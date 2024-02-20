@@ -66,13 +66,9 @@ public class Main {
         //calculator
         int x = 1;
         int y = 0; // Changed to 0 to illustrate the protection
-        int ans = 0;
 
-        if (y != 0) {
-            ans = Calculator.div(x, y);
-        } else {
-            System.out.println("Cannot divide by zero.");
-        }
+
+        int ans = Calculator.div(x, y);
 
         System.out.println("Result: " + ans);
     
