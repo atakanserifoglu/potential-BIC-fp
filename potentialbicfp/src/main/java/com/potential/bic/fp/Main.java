@@ -34,7 +34,9 @@ public class Main {
         //file manager
         try {
             fileHandler.saveFile("Data.txt", "Some content");
+            fileHandler.saveFile("data.txt", "Different content");
         } catch (IOException e) {
             e.printStackTrace();
     }
+}
 }
